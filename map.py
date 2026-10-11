@@ -25,3 +25,7 @@ class map:
     def affichageMonde(self):
         for ligne in self.map:
             print(ligne)
+        print("\n\n")
+
+    def maMap(self):
+        return self.map
