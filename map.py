@@ -1,0 +1,27 @@
+class map:
+    def __init__(self):
+        self.lignes = 7
+        self.valeur_defaut = "F"
+        self.map = [[self.valeur_defaut for _ in range(self.lignes)] for _ in range(self.lignes)]
+
+        self.village_type = ([["I"],["G"]],
+                             [["M"],["P"]])
+        #self.village_type = ([["INN"], ["Guilde"]],
+        #                     [["maison"], ["poste_de_garde"]])
+
+    def generationMonde(self):
+        mid = len(self.map)//2
+        #self.map[:mid][:mid] = []
+        for y,ligne in enumerate(self.map):
+            for x, element in enumerate(ligne):
+                if y == mid | x == mid:
+                    self.map[y][x] = "_"
+
+
+        for y,ligne in enumerate(self.village_type):
+            for x, element in enumerate(ligne):
+                self.map[mid + y][mid + x] = element[0]
+
+    def affichageMonde(self):
+        for ligne in self.map:
+            print(ligne)
