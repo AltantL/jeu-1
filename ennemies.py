@@ -56,4 +56,4 @@ class ennemie:
         self.vie += heal
 
     def mort(self):
-        return round(self.niveau * 1.5)
+        return round(self.niveau * 1.5)+1
