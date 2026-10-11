@@ -27,6 +27,9 @@ while player.vie > 0:
                    "gauche -> 'q'\n"
                    "inventaire -> 'i'\n")
 
+    if touche == "mort":
+        player.mort()
+
     if touche == "z":
         player.mouvement_haut()
     elif touche == "s":
