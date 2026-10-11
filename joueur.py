@@ -1,19 +1,22 @@
+import sys
+
 class player:
     def __init__(self):
         self.name = "player"
         self.vieMax = 10
         self.vie = 10
         self.attaque = 1
+        self.defence = 1
         self.niveau = 1
         self.experience = 1
         self.inventaire = []
-        self.equipements = ["casque","plastron","jambiere","botte","épée_basique","bouclier"]
+        self.equipements = ["casque_basique","plastron_basique","jambiere_basique","botte_basique","épée_basique","bouclier_basique"]
 
     def nomJoueur(self):
         self.name = input("Nom du joueur (par défaut : player): ")
 
     def attaque(self):
-        print("attaque : " + self.attaque)
+        return self.attaque
 
     def levelUP(self):
         if (self.experience >= self.niveau * 10):
@@ -25,6 +28,10 @@ class player:
 
 
     def degat(self, attaque):
+        attaque = attaque - self.defence
+        if attaque < 0:
+            attaque = 0
+
         self.vie -= attaque
         if self.vie <= 0:
             self.mort()
@@ -33,4 +40,4 @@ class player:
         self.vie += heal
 
     def mort(self):
-        print("vous êtes mort")
+        sys.exit("vous êtes mort")
