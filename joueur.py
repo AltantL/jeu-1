@@ -14,7 +14,7 @@ class player:
         self.inventaire = ["potion","potion"]
         self.equipements = ["casque_basique","plastron_basique","jambiere_basique","botte_basique","épée_basique","bouclier_basique"]
 
-        self.coordonee = 0,0
+        self.coordonee = [0,0]
 
 
     def nomJoueur(self):
@@ -53,8 +53,10 @@ class player:
         return self.vie
 
     def map_player(self,carte):
-        x,y = self.coordonee
+        x,y = self.coordonee[0], self.coordonee[1]
         carte[x][y] = "A"
+        # attention, cette action grave "A" dans la map
+        # il faut trouver une alternative
         for ligne in carte:
             print(ligne)
         print("\n\n")
@@ -79,20 +81,20 @@ class player:
 
 
     def tp(self,x,y):
-        self.coordonee = x,y
+        self.coordonee = [x,y]
 
     def coordonee(self):
         return self.coordonee
 
     def mouvement_haut(self):
-        self.coordonee += 0,1
+        self.coordonee[0] -= 1
 
     def mouvement_bas(self):
-        self.coordonee -= 0,1
+        self.coordonee[0] += 1
 
     def mouvement_droit(self):
-        self.coordonee += 1,0
+        self.coordonee[1] += 1
 
     def mouvement_gauche(self):
-        self.coordonee -= 1,0
+        self.coordonee[1] -= 1
 
