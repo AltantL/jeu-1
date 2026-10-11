@@ -9,7 +9,7 @@ class player:
         self.defence = 1
         self.niveau = 1
         self.experience = 1
-        self.inventaire = []
+        self.inventaire = ["potion","potion"]
         self.equipements = ["casque_basique","plastron_basique","jambiere_basique","botte_basique","épée_basique","bouclier_basique"]
 
         self.coordonee = 0,0
