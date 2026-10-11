@@ -9,7 +9,7 @@ class ennemie:
         self.equipements = ["","","","","",""]
 
     def nomEnnemie(self):
-        self.name = input("Nom du joueur (par défaut : player): ")
+        self.name = input("Nom de l'ennemie: ")
 
     def attaque(self):
         return self.attaque
