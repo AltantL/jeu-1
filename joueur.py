@@ -1,7 +1,7 @@
 import sys
 
 class player:
-    def __init__(self, map):
+    def __init__(self):
         self.name = "player"
         self.vieMax = 10
         self.vie = 10
