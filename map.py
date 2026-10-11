@@ -1,6 +1,6 @@
 class map:
     def __init__(self):
-        self.lignes = 7
+        self.lignes = 10
         self.valeur_defaut = "F"
         self.map = [[self.valeur_defaut for _ in range(self.lignes)] for _ in range(self.lignes)]
 
@@ -10,11 +10,11 @@ class map:
         #                     [["maison"], ["poste_de_garde"]])
 
     def generationMonde(self):
-        mid = len(self.map)//2
+        mid = (len(self.map)//2)-1
         #self.map[:mid][:mid] = []
         for y,ligne in enumerate(self.map):
             for x, element in enumerate(ligne):
-                if y == mid | x == mid:
+                if x == mid or y == mid:
                     self.map[y][x] = "_"
 
 
