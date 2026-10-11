@@ -14,27 +14,9 @@ class player:
 
         self.coordonee = 0,0
 
-    def tp(self,x,y):
-        self.coordonee = x,y
-
-    def coordonee(self):
-        return self.coordonee
-
-    def mouvement_haut(self):
-        self.coordonee += 0,1
-
-    def mouvement_bas(self):
-        self.coordonee -= 0,1
-
-    def mouvement_droit(self):
-        self.coordonee += 1,0
-
-    def mouvement_gauche(self):
-        self.coordonee -= 1,0
-
 
     def nomJoueur(self):
-        self.name = input("Nom du joueur (par défaut : player): ")
+        self.name = input("Nom du joueur (par défaut : player): \n\n\n")
 
     def attaque(self):
         return self.attaque
@@ -59,6 +41,37 @@ class player:
 
     def soin(self, heal):
         self.vie += heal
+        if self.vie >= self.vieMax:
+            self.vie = self.vieMax
 
     def mort(self):
         sys.exit("vous êtes mort")
+
+    def vie(self):
+        return self.vie
+
+    def map_player(self,carte):
+        x,y = self.coordonee
+        carte[x][y] = "A"
+        for ligne in carte:
+            print(ligne)
+        print("\n\n")
+
+    def tp(self,x,y):
+        self.coordonee = x,y
+
+    def coordonee(self):
+        return self.coordonee
+
+    def mouvement_haut(self):
+        self.coordonee += 0,1
+
+    def mouvement_bas(self):
+        self.coordonee -= 0,1
+
+    def mouvement_droit(self):
+        self.coordonee += 1,0
+
+    def mouvement_gauche(self):
+        self.coordonee -= 1,0
+
