@@ -1,6 +1,6 @@
-class enemie:
+class ennemie:
     def __init__(self):
-        self.name = "enemie"
+        self.name = "ennemie"
         self.vieMax = 10
         self.vie = 10
         self.attaque = 1
@@ -8,7 +8,7 @@ class enemie:
         self.niveau = 1
         self.equipements = ["","","","","",""]
 
-    def nomEnemie(self):
+    def nomEnnemie(self):
         self.name = input("Nom du joueur (par défaut : player): ")
 
     def attaque(self):
