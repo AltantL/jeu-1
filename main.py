@@ -25,7 +25,7 @@ while player.vie > 0:
                    "bas  -> 's' \n"
                    "droite -> 'd'\n"
                    "gauche -> 'q'\n"
-                   "inventaire -> 'i'\n")
+                   "inventaire -> 'i'\n\n")
 
     if touche == "mort":
         player.mort()
@@ -39,4 +39,11 @@ while player.vie > 0:
     elif touche == "q":
         player.mouvement_gauche()
     elif touche == "i":
-        pass
+        while len(player.inventaire) > 0:
+            player.inventaireVue()
+            i = input("choisier un item ou exit pour sortir\n")
+            if i == "exit":
+                break
+            if int(i) <= len(player.inventaire):
+                player.inventaireUtilisation(i)
+

@@ -1,4 +1,6 @@
 import sys
+from os import remove
+
 
 class player:
     def __init__(self):
@@ -56,6 +58,25 @@ class player:
         for ligne in carte:
             print(ligne)
         print("\n\n")
+
+    def inventaireVue(self):
+        for i in self.inventaire:
+            print(i)
+
+    def inventaireUtilisation(self, i):
+        i = int(i)
+        liste = []
+        with open('liste_objet', 'r', encoding='utf-8') as f:
+            for line in f:
+                liste.append(line.split(","))
+
+        print(liste)
+
+        action = liste[i][1]
+        action = int(action)
+        liste.remove(liste[i])
+        self.soin(action)
+
 
     def tp(self,x,y):
         self.coordonee = x,y
