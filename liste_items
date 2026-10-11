@@ -1,7 +1,7 @@
-nom_item,effet_attaque,effet_defence,effet_vie
-casque,
-plastron,
-jambiere,
-botte,
-épée_basique,
-bouclier,
+nom_item,effet_attaque,effet_defence,effet_vieMax
+casque_basique,0,1,2
+plastron_basique,0,2,5
+jambiere_basique,0,1,3
+botte_basique,0,1,2
+épée_basique,2,0,0
+bouclier_basique,0,3,0
