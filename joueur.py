@@ -1,7 +1,7 @@
 import sys
 
 class player:
-    def __init__(self):
+    def __init__(self, map):
         self.name = "player"
         self.vieMax = 10
         self.vie = 10
@@ -11,6 +11,27 @@ class player:
         self.experience = 1
         self.inventaire = []
         self.equipements = ["casque_basique","plastron_basique","jambiere_basique","botte_basique","épée_basique","bouclier_basique"]
+
+        self.coordonee = 0,0
+
+    def tp(self,x,y):
+        self.coordonee = x,y
+
+    def coordonee(self):
+        return self.coordonee
+
+    def mouvement_haut(self):
+        self.coordonee += 0,1
+
+    def mouvement_bas(self):
+        self.coordonee -= 0,1
+
+    def mouvement_droit(self):
+        self.coordonee += 1,0
+
+    def mouvement_gauche(self):
+        self.coordonee -= 1,0
+
 
     def nomJoueur(self):
         self.name = input("Nom du joueur (par défaut : player): ")
