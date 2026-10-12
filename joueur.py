@@ -53,7 +53,7 @@ class player:
         return self.vie
 
     def map_player(self,carte):
-        x,y = self.coordonee[0], self.coordonee[1]
+        x,y = self.coordonee
         carte[x][y] = "A"
         # attention, cette action grave "A" dans la map
         # il faut trouver une alternative
