@@ -1,30 +1,46 @@
 import sys
-from os import remove
 
 
 class player:
     def __init__(self):
-        self.name = "player"
+        self.name = ""
         self.vieMax = 10
         self.vie = 10
         self.attaque = 1
         self.defence = 1
         self.niveau = 1
         self.experience = 1
-        self.inventaire = ["potion","potion"]
-        self.equipements = ["casque_basique","plastron_basique","jambiere_basique","botte_basique","épée_basique","bouclier_basique"]
+        self.inventaire = []
+        self.equipements = {"casque": "",
+                            "plastron" : "",
+                            "jambiere" : "",
+                            "botte" : "",
+                            "epee" : "",
+                            "bouclier" : ""}
 
         self.coordonee = [0,0]
 
+    def stuffBassique(self):
+        self.inventaire.append("potion")
+        self.inventaire.append("potion")
+
+        self.equipements["casque"] = "casque_basique"
+        self.equipements["plastron"] = "plastron_basique"
+        self.equipements["jambiere"] = "jambiere_basique"
+        self.equipements["botte"] = "botte_basique"
+        self.equipements["epee"] = "epee_basique"
+        self.equipements["bouclier"] = "bouclier_basique"
 
     def nomJoueur(self):
         self.name = input("Nom du joueur (par défaut : player): \n\n\n")
+        if self.name == "":
+            self.name = "player"
 
     def attaque(self):
         return self.attaque
 
     def levelUP(self):
-        if (self.experience >= self.niveau * 10):
+        if self.experience >= self.niveau * 10:
             self.experience = self.experience - self.niveau * 10
             self.niveau += 1
             self.attaque += 1
@@ -48,6 +64,7 @@ class player:
 
     def mort(self):
         sys.exit("vous êtes mort")
+        return round(self.niveau * 1.5) + 1
 
     def vie(self):
         return self.vie
