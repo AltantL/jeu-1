@@ -35,4 +35,6 @@ class map:
         return self.map
 
     def nettoyageMap(self):
-        self.map = self.mapI
+        for y, ligne in enumerate(self.mapI):
+            for x, element in enumerate(ligne):
+                self.map[y][x] = element
