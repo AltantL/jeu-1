@@ -47,3 +47,5 @@ while player.vie > 0:
             if int(i) <= len(player.inventaire):
                 player.inventaireUtilisation(i)
 
+
+    monde.nettoyageMap()
