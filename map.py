@@ -17,21 +17,14 @@ class map:
             for x, element in enumerate(ligne):
                 if x == mid or y == mid:
                     self.map[y][x] = "_"
+                    self.mapI[y][x] = "_"
 
 
         for y,ligne in enumerate(self.village_type):
             for x, element in enumerate(ligne):
                 self.map[mid + y][mid + x] = element[0]
-
-
-        for y, ligne in enumerate(self.mapI):
-            for x, element in enumerate(ligne):
-                if x == mid or y == mid:
-                    self.mapI[y][x] = "_"
-
-        for y, ligne in enumerate(self.village_type):
-            for x, element in enumerate(ligne):
                 self.mapI[mid + y][mid + x] = element[0]
+
 
     def affichageMonde(self):
         for ligne in self.map:
