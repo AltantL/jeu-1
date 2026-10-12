@@ -8,25 +8,26 @@ class ennemie:
         self.niveau = 1
         self.equipements = ["","","","","",""]
 
-        self.coordonee = 0, 0
+        self.coordonee = [0,0]
 
-    def tp(self, x, y):
-        self.coordonee = x, y
+
+    def tp(self,x,y):
+        self.coordonee = [x,y]
 
     def coordonee(self):
         return self.coordonee
 
     def mouvement_haut(self):
-        self.coordonee += 0, 1
+        self.coordonee[0] -= 1
 
     def mouvement_bas(self):
-        self.coordonee -= 0, 1
+        self.coordonee[0] += 1
 
     def mouvement_droit(self):
-        self.coordonee += 1, 0
+        self.coordonee[1] += 1
 
     def mouvement_gauche(self):
-        self.coordonee -= 1, 0
+        self.coordonee[1] -= 1
 
     def nomEnnemie(self):
         self.name = input("Nom de l'ennemie: ")
