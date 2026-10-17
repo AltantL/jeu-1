@@ -1,6 +1,5 @@
 import sys
 
-
 class player:
     def __init__(self):
         self.name = ""
@@ -19,6 +18,7 @@ class player:
                             "bouclier" : ""}
 
         self.coordonee = [0,0]
+        self.futurCoordonee = [0,0]
 
     def stuffBassique(self):
         self.inventaire.append("potion")
@@ -63,7 +63,6 @@ class player:
             self.vie = self.vieMax
 
     def mort(self):
-        sys.exit("vous êtes mort")
         return round(self.niveau * 1.5) + 1
 
     def vie(self):
@@ -99,19 +98,46 @@ class player:
 
     def tp(self,x,y):
         self.coordonee = [x,y]
+        self.futurCoordonee = [x,y]
 
-    def coordonee(self):
-        return self.coordonee
+    def autreCotee(self,carte):
+        tCarte = 50
 
-    def mouvement_haut(self):
-        self.coordonee[0] -= 1
+        if self.futurCoordonee[0] < 0:
+            self.futurCoordonee[0] = tCarte
+        if self.futurCoordonee[1] < 0:
+            self.futurCoordonee[1] = tCarte
+        if self.futurCoordonee[0] >= tCarte:
+            self.futurCoordonee[0] = 0
+        if self.futurCoordonee[1] >= tCarte:
+            self.futurCoordonee[1] = 0
 
-    def mouvement_bas(self):
-        self.coordonee[0] += 1
+    def mouvement_haut(self,carte):
+        self.futurCoordonee[0] -= 1
+        if carte[self.futurCoordonee[0]][self.futurCoordonee[1]] != "0":
+            self.coordonee[0] -= 1
+        else:
+            self.futurCoordonee[0] += 1
 
-    def mouvement_droit(self):
-        self.coordonee[1] += 1
 
-    def mouvement_gauche(self):
-        self.coordonee[1] -= 1
+    def mouvement_bas(self,carte):
+        self.futurCoordonee[0] += 1
+        if carte[self.futurCoordonee[0]][self.futurCoordonee[1]] != "0":
+            self.coordonee[0] += 1
+        else:
+            self.futurCoordonee[0] -= 1
+
+    def mouvement_droit(self,carte):
+        self.futurCoordonee[1] += 1
+        if carte[self.futurCoordonee[0]][self.futurCoordonee[1]] != "0":
+            self.coordonee[1] += 1
+        else:
+            self.futurCoordonee[1] -= 1
+
+    def mouvement_gauche(self,carte):
+        self.futurCoordonee[1] -= 1
+        if carte[self.futurCoordonee[0]][self.futurCoordonee[1]] != "0":
+            self.coordonee[1] -= 1
+        else:
+            self.futurCoordonee[1] += 1
 
