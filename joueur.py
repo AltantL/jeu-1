@@ -78,8 +78,15 @@ class player:
         print("\n\n")
 
     def inventaireVue(self):
-        for i in self.inventaire:
-            print(i)
+
+        print("coordonnée : ")
+        print(self.coordonee)
+        print("\n"+"futurCoordonée : ")
+        print(self.futurCoordonee)
+
+
+        #for i in self.inventaire:
+        #    print(i)
 
     def inventaireUtilisation(self, i):
         i = int(i)
@@ -100,44 +107,48 @@ class player:
         self.coordonee = [x,y]
         self.futurCoordonee = [x,y]
 
-    def autreCotee(self,carte):
-        tCarte = 50
+    def autreCotee(self):
+        tCarte = 49
 
         if self.futurCoordonee[0] < 0:
             self.futurCoordonee[0] = tCarte
         if self.futurCoordonee[1] < 0:
             self.futurCoordonee[1] = tCarte
-        if self.futurCoordonee[0] >= tCarte:
+        if self.futurCoordonee[0] > tCarte:
             self.futurCoordonee[0] = 0
-        if self.futurCoordonee[1] >= tCarte:
+        if self.futurCoordonee[1] > tCarte:
             self.futurCoordonee[1] = 0
 
     def mouvement_haut(self,carte):
         self.futurCoordonee[0] -= 1
+        self.autreCotee()
         if carte[self.futurCoordonee[0]][self.futurCoordonee[1]] != "0":
-            self.coordonee[0] -= 1
+            self.coordonee = self.futurCoordonee
         else:
             self.futurCoordonee[0] += 1
 
 
     def mouvement_bas(self,carte):
         self.futurCoordonee[0] += 1
+        self.autreCotee()
         if carte[self.futurCoordonee[0]][self.futurCoordonee[1]] != "0":
-            self.coordonee[0] += 1
+            self.coordonee = self.futurCoordonee
         else:
             self.futurCoordonee[0] -= 1
 
     def mouvement_droit(self,carte):
         self.futurCoordonee[1] += 1
+        self.autreCotee()
         if carte[self.futurCoordonee[0]][self.futurCoordonee[1]] != "0":
-            self.coordonee[1] += 1
+            self.coordonee = self.futurCoordonee
         else:
             self.futurCoordonee[1] -= 1
 
     def mouvement_gauche(self,carte):
         self.futurCoordonee[1] -= 1
+        self.autreCotee()
         if carte[self.futurCoordonee[0]][self.futurCoordonee[1]] != "0":
-            self.coordonee[1] -= 1
+            self.coordonee = self.futurCoordonee
         else:
             self.futurCoordonee[1] += 1
 
