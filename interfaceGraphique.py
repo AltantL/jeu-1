@@ -1,33 +1,48 @@
 import pygame
 
-class graphique:
-    def __init__(self):
-        self.tailleBloc = 30 # taille de chaque bloc en pixel
-        self.map = []
-        self.taille = 1
+
+class graphiqueMap:
+    def __init__(self,taille):
+        self.tailleBloc = 10 # taille de chaque bloc en pixel
+        self.taille = taille
         self.longeurTotal = self.tailleBloc * self.taille
+        self.init = pygame.init()
+        self.screen = pygame.display.set_mode((self.longeurTotal, self.longeurTotal))
+        self.clock = pygame.time.Clock()
 
-    def initialisationMapGraph(self,carte):
 
-        self.taille = len(carte) * self.tailleBloc
+    def generateMapGraph(self, carte):
 
-        self.longeurTotal = self.tailleBloc * self.taille
-
+        self.screen.fill("purple")
         for y, ligne in enumerate(carte):
             for x, element in enumerate(ligne):
-                self.map[y][x] = element
-
-    def generateMapGraph(self):
-
-        pygame.init()
-        screen = pygame.display.set_mode((self.longeurTotal, self.longeurTotal))
-        screen.fill("purple")
-
-        for y, ligne in enumerate(self.map):
-            for x, element in enumerate(ligne):
-                create_rectangle(x * self.tailleBloc, y * self.tailleBloc, (x + 1) * self.tailleBloc,
-                                        (y + 1) * self.tailleBloc, fill="white")
+                if element == "_":
+                    pygame.draw.rect(self.screen, "gray",(x * self.tailleBloc, y * self.tailleBloc, self.tailleBloc, self.tailleBloc))
+                elif element == "F":
+                    pygame.draw.rect(self.screen,"green", (x * self.tailleBloc, y * self.tailleBloc, self.tailleBloc,self.tailleBloc))
+                elif element == "0":
+                    pygame.draw.rect(self.screen, "black",(x * self.tailleBloc, y * self.tailleBloc, self.tailleBloc, self.tailleBloc))
+                else:
+                    pygame.draw.rect(self.screen, "brown",(x * self.tailleBloc, y * self.tailleBloc, self.tailleBloc, self.tailleBloc))
+                #self.screen.blit("lienImg", [x * self.tailleBloc, y * self.tailleBloc])
 
 
-    def drawMapGraph(self):
-        pygame.display.set_caption("map")
+        #keys = pygame.key.get_pressed()
+        #if keys[pygame.K_z]:
+             #player_pos.y -= self.tailleBloc * self.dt
+        #if keys[pygame.K_s]:
+            #player_pos.y += self.tailleBloc * self.dt
+        #if keys[pygame.K_q]:
+            #player_pos.x -= self.tailleBloc * self.dt
+        #if keys[pygame.K_d]:
+            #player_pos.x += self.tailleBloc * self.dt
+
+
+
+
+    def drawEntity(self,playerCoo):
+        pygame.draw.rect(self.screen, "pink",(playerCoo[1] * self.tailleBloc, playerCoo[0] * self.tailleBloc, self.tailleBloc, self.tailleBloc))
+
+
+    def flip(self):
+        pygame.display.flip()
