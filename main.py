@@ -54,22 +54,40 @@ while running:
     #player.map_player(monde.map)
 
     if 200 < pygame.time.get_ticks() - timePlayer:
-
+        futureCo = player.coordonee
         keys = pygame.key.get_pressed()
+
         if keys[pygame.K_z]:
-            player.mouvement_haut(monde.map)
+            futureCo = monde.autreCotee([futureCo[0]-1,futureCo[1]])
+            if monde.pasMouv(futureCo):
+                player.tp(futureCo[0],futureCo[1])
+                #player.mouvement_haut(monde.map)
             timePlayer = pygame.time.get_ticks()
+
         if keys[pygame.K_s]:
-            player.mouvement_bas(monde.map)
+            futureCo = monde.autreCotee([futureCo[0]+1,futureCo[1]])
+            if monde.pasMouv(futureCo):
+                player.tp(futureCo[0],futureCo[1])
+                #player.mouvement_bas(monde.map)
             timePlayer = pygame.time.get_ticks()
+
         if keys[pygame.K_q]:
-            player.mouvement_gauche(monde.map)
+            futureCo = monde.autreCotee([futureCo[0],futureCo[1]-1])
+            if monde.pasMouv(futureCo):
+                player.tp(futureCo[0],futureCo[1])
+                #player.mouvement_gauche(monde.map)
             timePlayer = pygame.time.get_ticks()
+
         if keys[pygame.K_d]:
-            player.mouvement_droit(monde.map)
+            futureCo = monde.autreCotee([futureCo[0],futureCo[1]+1])
+            if monde.pasMouv(futureCo):
+                player.tp(futureCo[0],futureCo[1])
+                #player.mouvement_droit(monde.map)
             timePlayer = pygame.time.get_ticks()
+
         if keys[pygame.K_i]:
             player.inventaireVue()
+            print(monde.coordonneeMapMonde)
             timePlayer = pygame.time.get_ticks()
 
 

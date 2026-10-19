@@ -81,6 +81,7 @@ class player:
         print(self.coordonee)
         print("\n"+"futurCoordonée : ")
         print(self.futurCoordonee)
+        print("\n")
 
 
         #for i in self.inventaire:
@@ -121,35 +122,14 @@ class player:
             self.futurCoordonee[1] = 0
 
     def mouvement_haut(self,carte):
-        self.futurCoordonee[0] -= 1
-        self.autreCotee()
-        if carte[self.futurCoordonee[0]][self.futurCoordonee[1]] != "0":
-            self.coordonee = self.futurCoordonee
-        else:
-            self.futurCoordonee[0] += 1
-
+        self.futurCoordonee[0] += 1
 
     def mouvement_bas(self,carte):
-        self.futurCoordonee[0] += 1
-        self.autreCotee()
-        if carte[self.futurCoordonee[0]][self.futurCoordonee[1]] != "0":
-            self.coordonee = self.futurCoordonee
-        else:
-            self.futurCoordonee[0] -= 1
+        self.futurCoordonee[0] -= 1
 
     def mouvement_droit(self,carte):
-        self.futurCoordonee[1] += 1
-        self.autreCotee()
-        if carte[self.futurCoordonee[0]][self.futurCoordonee[1]] != "0":
-            self.coordonee = self.futurCoordonee
-        else:
-            self.futurCoordonee[1] -= 1
+        self.futurCoordonee[1] -= 1
 
     def mouvement_gauche(self,carte):
-        self.futurCoordonee[1] -= 1
-        self.autreCotee()
-        if carte[self.futurCoordonee[0]][self.futurCoordonee[1]] != "0":
-            self.coordonee = self.futurCoordonee
-        else:
-            self.futurCoordonee[1] += 1
+        self.futurCoordonee[1] += 1
 
