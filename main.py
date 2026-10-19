@@ -2,7 +2,7 @@ import pygame
 import random
 
 import interfaceGraphique
-import joueur
+import entiter
 import map
 
 print("test jeu\n\n\n")
@@ -15,11 +15,11 @@ mapGraph = interfaceGraphique.graphiqueMap(monde.lignes)
 
 monde.affichageMonde()
 
-player = joueur.player()
+player = entiter.player()
 #player.nomJoueur()
 
 
-monstre = [joueur.player(), joueur.player(), joueur.player(), joueur.player(), joueur.player()]
+monstre = [entiter.player(), entiter.player(), entiter.player(), entiter.player(), entiter.player()]
 
 
 
@@ -53,7 +53,7 @@ while running:
 
     #player.map_player(monde.map)
 
-    if 250 < pygame.time.get_ticks() - timePlayer:
+    if 200 < pygame.time.get_ticks() - timePlayer:
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_z]:
