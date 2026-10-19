@@ -1,0 +1,11 @@
+A faire :
+    interface (inventaire/acceuil)
+    systeme de combat (tour par tour ? / type zelda 1 ?)
+    différents ennemies
+    meilleur map (plus de détaille)
+    plusieurs map différente (batiments/grottes/autres maps)
+    accès aux différentes map
+
+Fait :
+    les entiters passe de l'autre coté de la map et ne vont pas dans le "vide"
+    faire des "enemies"
