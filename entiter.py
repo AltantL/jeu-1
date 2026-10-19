@@ -1,5 +1,3 @@
-import sys
-
 class player:
     def __init__(self):
         self.name = ""
@@ -108,6 +106,9 @@ class player:
         self.futurCoordonee = [x,y]
 
     def autreCotee(self):
+        #faut aussi faire en sorte que quand ce moment arrive, la carte change
+        #plusieurs choix (un return pour dire que y a eu un changement ou une map des différentes map)
+        #faut juste que ce soit pas dans le joueur
         tCarte = 49
 
         if self.futurCoordonee[0] < 0:
