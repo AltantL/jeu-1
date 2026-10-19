@@ -1,6 +1,5 @@
 import pygame
 
-
 class graphiqueMap:
     def __init__(self,taille):
         self.tailleBloc = 10 # taille de chaque bloc en pixel
