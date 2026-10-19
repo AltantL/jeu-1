@@ -16,12 +16,13 @@ class map:
         mid = (len(self.map)//2)-1
         for y,ligne in enumerate(self.map):
             for x, element in enumerate(ligne):
+                if x == 0 or y == 0 or x == self.lignes-1 or y == self.lignes-1:
+                # BORDURE MAP
+                    self.map[y][x] = "0"
                 if x == mid or y == mid:
                     self.map[y][x] = "_"
                     self.mapI[y][x] = "_"
-                if x == 0 or y == 0 or x == self.lignes-1 or y == self.lignes-1:
-                    #BORDURE MAP
-                    self.map[y][x] = "0"
+
 
 
         for y,ligne in enumerate(self.village_type):
